@@ -1,7 +1,13 @@
 body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi-1NPu5SdjrM0yXSF96Ow7UbUoHEpdWB3Q&usqp=CAU');
+  background-image: linear-gradient(to bottom, transparent, rgba(176,0,0,0.7)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi-1NPu5SdjrM0yXSF96Ow7UbUoHEpdWB3Q&usqp=CAU');
+  background-size: 100vh, 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -9,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+code {  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

@@ -29,10 +29,9 @@ const Header = () => {
   
   
   return(
-    <div className="fds">
+    <div>
     <header className="headerp">
-    <h2>WiGenerator
-    </h2>
+    <h2>WiGenerator</h2>
     
     <Buttom target={LiCat}/>
     {caton && <Cat/>}

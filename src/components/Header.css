@@ -1,9 +1,10 @@
 .headerp {
   color: white;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.8);
   display: grid;
   grid-template-columns: repeat(3,20%);
-  grid-auto-rows: auto;  
+  grid-auto-rows: auto; 
+  padding: 0.5%; 
 }
 
 .headerp h2 {
@@ -43,6 +44,7 @@
   }
   .headerp h2 {
     padding: 0%;
+    margin-left: 10%;
   }
 
 }

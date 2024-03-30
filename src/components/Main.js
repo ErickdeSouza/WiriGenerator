@@ -69,29 +69,31 @@ const Main = () => {
             <option key={domain} value={domain}>{domain}</option>
           ))}
         </select>
+        <br/>
         <button type='submit' disabled={textValor}>Submit</button>
         <button type='submit' disabled={!textValor}>Cancel</button>
         </form>
       </div>
+      <div className='fds'>
       {textValor && (
-      <div>
+      <div className='result'>
         <p>{valorInput + "@" + selectedDomain}</p>
         
         {loading ? <p>Carregando...</p> : (
          <section>
           {results['msgs'].map((message, index) => (
-        <div key={index}>
-          <p><strong>UID:</strong> {message.uid}</p>
+        <div className='date' key={index}>
           <p><strong>From:</strong> {message.f}</p>
           <p><strong>Subject:</strong> {message.s}</p>
           <p><strong>Date:</strong> {message.cr}</p>
-          {/* Adicione mais campos conforme necessário */}
+          {/* Adicione mais campos conforme necessário */}  
         </div>
       ))}
     </section>
       )}
       </div>
       )}
+      </div>
     </div>
   );
 }

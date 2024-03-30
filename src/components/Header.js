@@ -33,8 +33,9 @@ const Header = () => {
     <header className="headerp">
     <h2>WiGenerator
     </h2>
+    
     <Buttom target={LiCat}/>
-    {caton && <Cat cl/>}
+    {caton && <Cat/>}
     </header>
     </div>
     );

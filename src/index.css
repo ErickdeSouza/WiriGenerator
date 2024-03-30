@@ -1,13 +1,11 @@
 body {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi-1NPu5SdjrM0yXSF96Ow7UbUoHEpdWB3Q&usqp=CAU');
-  background-image: linear-gradient(to bottom, transparent, rgba(176,0,0,0.7)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi-1NPu5SdjrM0yXSF96Ow7UbUoHEpdWB3Q&usqp=CAU');
-  background-size: 100vh, 100%;
-  background-size: cover;
+  background-image: url('https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-red-black-background-amoled-hd-4480x2520-799.jpg');
+  
   background-repeat: no-repeat;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0;    
   padding: 0;
-  height: 100vh;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,3 +17,19 @@ code {  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+@media only screen and (min-width: 600px) {
+  body {
+    background-image: url('https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-red-black-background-amoled-hd-4480x2520-799.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    box-sizing: border-box;
+    margin: 0;    
+    padding: 0; 
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

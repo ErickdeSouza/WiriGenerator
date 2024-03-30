@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header/>
       <Main />
-      <div class="triangulo"></div>
+      
     </div>
   );
 }

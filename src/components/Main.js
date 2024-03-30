@@ -21,8 +21,9 @@ const Main = () => {
   const [selectedDomain, setSelectedDomain] = useState('blondmail.com');
   const [textValor, setTextValor] = useState(false)
 
-  const handleTextChange = (event) => {
+  const handleTextChange = async (event) => {
     event.preventDefault();
+    await fetchData()
     setTextValor(!textValor)
   }
   const handleChange = (event) => {
@@ -32,35 +33,28 @@ const Main = () => {
   const handleDomainChange = (event) => {
     setSelectedDomain(event.target.value);
   };
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState();
   const [loading, setLoading] = useState(true); 
-
-  useEffect(() => {
     const fetchData = async () => {
-      try {
+    try {
         const proxies = await getProxy();
-        await Promise.all(proxies.map(async (proxy) => {
-        try {
-            const inboxUrl = `https://inboxes.com/api/v2/inbox/${valorInput}@${selectedDomain}`;
-            const response = await fetch(inboxUrl, { proxy: proxy });
-            const data = await response.text();
-              setResults(data);
-        } catch (error) {
-            console.error('Error:', error.message);
-        }
-    }));
         
+        // Selecionar uma proxy aleatória do array proxies
+        const randomProxy = proxies[Math.floor(Math.random() * proxies.length)];
         
+        const inboxUrl = `http://localhost:4000/api/v2/inbox/${valorInput}@${selectedDomain}`;
+        const response = await fetch(inboxUrl, { proxy: randomProxy });
+        const data = await response.json();
+        setResults(data);
         
-      } catch (error) {
-        console.error('Erro ao fazer a requisição:', error);
-      } finally {
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error.message);
+    } finally {
         setLoading(false);
-      }
-    };
+    }
+};
 
-    fetchData();
-  }, [])
+
   const domains = ["blondmail.com", 'chapsmail.com', 'clowmail.com', 'dropjar.com', 'fivermail.com', 'getairmail.com' , 'getmule.com', 'getnada.com', 'gimpmail.com', 'givmail.com', 'guysmail.com',  'vomoto.com', 'tupmail.com', 'temptami.com', 'tafmail.com', 'spicysoda.com', 'robot-mail.com', 'replyloop.com', 'inboxbear.com'];
 
 
@@ -84,13 +78,18 @@ const Main = () => {
         <p>{valorInput + "@" + selectedDomain}</p>
         
         {loading ? <p>Carregando...</p> : (
-        <div>
-          {results.map((result, index) => (
-            <p key={index}>Resultado: {result}</p>
-          ))}
+         <section>
+          {results['msgs'].map((message, index) => (
+        <div key={index}>
+          <p><strong>UID:</strong> {message.uid}</p>
+          <p><strong>From:</strong> {message.f}</p>
+          <p><strong>Subject:</strong> {message.s}</p>
+          <p><strong>Date:</strong> {message.cr}</p>
+          {/* Adicione mais campos conforme necessário */}
         </div>
+      ))}
+    </section>
       )}
-     
       </div>
       )}
     </div>

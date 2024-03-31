@@ -9,9 +9,13 @@
   box-shadow: 92px 73px 201px rgba(0, 0, 0, 0.44);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) {
   .main h1 {
     padding: 20px;
+  }
+  .popup svg{
+    width: 2.2%;
+    height: 2.2%;
   }
 }
 .input {
@@ -38,7 +42,7 @@
   display: flex;
   top: 0;
   left: 50%;
-  width: 90%;
+  width: 50%;
   transform: translateX(-50%);
   background-image: linear-gradient(to bottom left, rgba(200,82,82, 0.7), rgba(180,0,0, 0.7));
   padding: 20px;
@@ -67,4 +71,52 @@
   & button#submit {
     display: none;
   }
+}
+
+#pp {
+  text-align: center  ;
+}
+ .result h2 {
+  margin-top: 5%;
+  text-align: center;
+  
+ }
+
+.result {
+  margin-top: 15%;
+  background-color: black;     /* Fundo escuro */
+  color: #fff; /* Texto branco */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: start;
+  margin-bottom: 15%;
+}
+
+.result p {
+  margin-bottom: 10px;
+}
+
+.result .date {
+  margin-bottom: 20px;
+}
+
+.result .date p {
+  margin: 5px 0;
+}
+
+/* Estilo para destacar a mensagem de carregamento */
+.result .loading-message {
+  font-style: italic;
+  color: #888; /* Cinza claro */
+}
+
+/* Estilo para destacar as informações da mensagem */
+.result .date p strong {
+  color: #f00; /* Vermelho */
+}
+
+
+.content {
+  height: auto;
+  width: 100%;
 }

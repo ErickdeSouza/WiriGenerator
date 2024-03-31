@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
+    "dompurify": "^3.0.11",
     "express": "^4.19.2",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
@@ -38,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.22.3"
   }
 }

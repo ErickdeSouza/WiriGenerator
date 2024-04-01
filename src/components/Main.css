@@ -1,6 +1,6 @@
 .main {
   color: white;
-  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(176,0,0,0.6));
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(53, 53, 53, 0.6));
   width: 90%;
   margin-left: 5%;
   border-radius: 30px;
@@ -27,9 +27,6 @@
   align-items: center;
 }
 
-.date {
-  padding: 2%;
-}
 .fds {
   width: 90%;
   margin-left: 5%;
@@ -46,11 +43,11 @@
   left: 50%;
   width: 50%;
   transform: translateX(-50%);
-  background-image: linear-gradient(to bottom left, rgba(200,82,82, 0.7), rgba(180,0,0, 0.7));
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.7), rgba(230, 230, 230, 0.7));
   padding: 20px;
   border-radius: 30px;
   animation: slideUp 0.5s ease forwards;
-  color: rgba(210,0,0,1);
+  color: rgb(15, 15, 15);
   justify-content: center;
   align-items: center;
   font-size: 13px;
@@ -76,7 +73,8 @@
 }
 
 #pp {
-  text-align: center  ;
+  text-align: center;
+  margin-bottom: 5%;
 }
  .result h2 {
   margin-top: 5%;
@@ -92,18 +90,53 @@
   border-radius: 10px;
   text-align: start;
   margin-bottom: 15%;
+  width: 100%;
+  overflow-x: auto;
+  bottom: 5%;
+}
+#container3 {
+  background-color: #555555;
+  border: #333333 1px solid;
+  border-radius: 10px;
 }
 
+#container3 input{
+  background-color: transparent;
+  border: none;
+  color: rgb(207, 207, 207);
+  padding: 5px;
+}
+
+#container3 select{
+  border: none;
+  background-color: transparent;
+  color: rgb(214, 214, 214);
+}
+#container3 select option{
+  background-color: #555555;
+  border-radius: 10px;
+  border: none;
+}
 .result p {
   margin-bottom: 10px;
 }
 
 .result .date {
   margin-bottom: 20px;
+  & button{
+    width: 100%;
+    background-color: #aaaaaa85;
+    color: rgb(26, 26, 26);
+    border: none;
+  }
 }
-
+#name{
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 4%;
+}
 .result .date p {
-  margin: 5px 0;
+  color: #cccccc;
 }
 
 /* Estilo para destacar a mensagem de carregamento */
@@ -114,5 +147,76 @@
 
 /* Estilo para destacar as informações da mensagem */
 .result .date p strong {
-  color: #f00; /* Vermelho */
+  color: rgb(138, 138, 138); /* Vermelho */
 }
+ 
+.date{
+  background-color: #333333;
+  border-radius: 15px;
+  position: relative;
+  width: 100vw !important
+}
+
+#pteste {
+  position: relative;
+  width: 100vw !important;
+  margin: 0;
+  background-color: rgb(218, 218, 218);
+  border: 10px solid;
+  border-image: linear-gradient(to right, #0000008e, #1d1d1d);
+  border-image-slice: 6;
+  animation-name: slideDownAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideDownAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.relative {
+  position: relative;
+}
+
+:is(.dark .dark\:text-slate-400) {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}   

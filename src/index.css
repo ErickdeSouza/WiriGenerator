@@ -1,8 +1,5 @@
 body {
-  background-image: url('https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-red-black-background-amoled-hd-4480x2520-799.jpg');
-  
-  background-repeat: no-repeat;
-  background-color: black;
+  background-color: rgb(20, 20, 20);
   box-sizing: border-box;
   margin: 0;    
   padding: 0;
@@ -21,9 +18,7 @@ code {  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 
 @media only screen and (min-width: 600px) {
   body {
-    background-image: url('https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-red-black-background-amoled-hd-4480x2520-799.jpg');
-    background-size: cover;
-    background-repeat: repeat-y;
+    background-color: rgb(20, 20, 20);
     box-sizing: border-box;
     margin: 0;    
     padding: 0; 

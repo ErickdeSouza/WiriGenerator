@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Main.css';
 import DOMPurify from 'dompurify';
 
@@ -42,16 +42,13 @@ const Main = () => {
 
  let touchStartTimestamp = 0;
 
-const handleTouchStart = () => {
+const handleTouchStart = (event) => {
+  
   touchStartTimestamp = Date.now();
 };
 
-const handleMosmailChange = async (event, id) => {
-  try{
-    event.preventDefault();
-  } catch (error) {
-    console.error('Erro sla:' + error)
-  }
+const handleMosmailChange = async (id) => {
+  
   const now = Date.now();
   if (now - touchStartTimestamp < 300) {
     return; // Ignorar ação se o intervalo entre o toque e o clique for inferior a300ms
@@ -69,14 +66,7 @@ const handleMosmailChange = async (event, id) => {
   }
 };
 
-  const stylesObj: CSSProperties = {
-  padding: 0,
-  boxSizing: "border-box",
-  margin: 0,
-  height: "50%",
-  width: "50%",
-  
-};
+
 
   const handleDomainChange = (event) => {
     setSelectedDomain(event.target.value);
@@ -122,12 +112,14 @@ const handleMosmailChange = async (event, id) => {
       <h1>Welcome to WiGenerator!</h1>
       <div className='input'>
         <form onSubmit={handleTextChange}>
-          <input type="text" value={valorInput} onChange={handleChange} disabled={textValor} />
+          <div id='container3'>
+          <input type="text" value={valorInput} placeholder='Name your email' onChange={handleChange} disabled={textValor} />
           <select value={selectedDomain} onChange={handleDomainChange} disabled={textValor}>
             {domains.map(domain => (
               <option key={domain} value={domain}>{domain}</option>
             ))}
           </select>
+          </div>
           <br/>
           {!textValor && (
             <button type='submit' id='submit' disabled={textValor}>Submit</button>
@@ -143,7 +135,7 @@ const handleMosmailChange = async (event, id) => {
       <div className='fds'>
         {textValor && (
           <div className='result'>
-            <p id='pp'>{valorInput + "@" + selectedDomain}</p>
+            <h2 id='pp'>{valorInput + "@" + selectedDomain}</h2>
             
             {loading ? (
               <p>Carregando...</p>
@@ -153,14 +145,17 @@ const handleMosmailChange = async (event, id) => {
               <section>
                 {results['msgs'].map((message, index) => (
                     <div className='date' key={index}>
-                      <p><strong>From:</strong> {message.f}</p>
-                      <p><strong>Subject:</strong> {message.s}</p>
-                      <p><strong>Date:</strong> {message.rr}</p>
-                      <button className='showemail' onTouchStart={(event) => {handleMosmailChange(event, message.uid);
+                      <p id="name"><strong>From:</strong> {message.f}</p>
+                      <p><strong>Message:</strong> {message.s}</p>
+                      <p><strong>Time sent:</strong> {message.rr}</p>
+                      <button onTouchStart={(event) => {handleMosmailChange(message.uid);
                       handleTouchStart() }} onClick={() => {handleMosmailChange(message.uid)}}>Show email</button>
                       
                       {clickedMessageUid === message.uid && (
-                        <div className="content" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(messages.html)}} style={stylesObj}/>
+                        <div id='pteste' className='dark:text-slate-400 text-slate-500 prose-a:text-blue-600'>
+                          <h1>Slide to the side....</h1>
+                          <div className="text-black bg-gray-50 p-4 flex flex-col justify-center relative overflow-hidden sm:py-12" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(messages.html)}}/>
+                        </div>
                       )}
                     </div>
                 ))}
@@ -172,9 +167,9 @@ const handleMosmailChange = async (event, id) => {
       </div>
       {showPopup && <div className="popup">
       <svg width="30%" height="30%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 9V14" stroke="rgba(223,0,0,0.896)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12.0001 21.41H5.94005C2.47005 21.41 1.02005 18.93 2.70005 15.9L5.82006 10.28L8.76006 5.00003C10.5401 1.79003 13.4601 1.79003 15.2401 5.00003L18.1801 10.29L21.3001 15.91C22.9801 18.94 21.5201 21.42 18.0601 21.42H12.0001V21.41Z" stroke="rgba(223,0,0,0.896)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M11.9945 17H12.0035" stroke="rgba(223,0,0,0.896)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 9V14" stroke="rgb(15, 15, 15)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12.0001 21.41H5.94005C2.47005 21.41 1.02005 18.93 2.70005 15.9L5.82006 10.28L8.76006 5.00003C10.5401 1.79003 13.4601 1.79003 15.2401 5.00003L18.1801 10.29L21.3001 15.91C22.9801 18.94 21.5201 21.42 18.0601 21.42H12.0001V21.41Z" stroke=" rgb(15, 15, 15)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M11.9945 17H12.0035" stroke=" rgb(15, 15, 15)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
       <p> Empty tex box!! Name the email to submit...</p>
       </div>}

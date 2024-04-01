@@ -12,6 +12,8 @@
 @media only screen and (min-width: 600px) {
   .main h1 {
     padding: 20px;
+    
+    
   }
   .popup svg{
     width: 2.2%;
@@ -113,10 +115,4 @@
 /* Estilo para destacar as informações da mensagem */
 .result .date p strong {
   color: #f00; /* Vermelho */
-}
-
-
-.content {
-  height: auto;
-  width: 100%;
 }
